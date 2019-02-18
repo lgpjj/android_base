@@ -1,6 +1,7 @@
 package com.lgpgit.open.toolutils.exception;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.os.Build;
@@ -37,6 +38,9 @@ public abstract class CrashHandler implements Thread.UncaughtExceptionHandler {
     private SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");// 用于格式化日期,作为日志文件名的一部分
     private SimpleDateFormat formatSS = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");// 用于格式化日期,作为日志文件内容分割线
     private String mfilePage;
+    private Class dialogContext = getDialogContext();
+
+    protected abstract Class getDialogContext();
 
     //文件路径
     protected abstract int getFilePage();
@@ -77,7 +81,12 @@ public abstract class CrashHandler implements Thread.UncaughtExceptionHandler {
         }
     }
 
-    protected abstract void DialogActivity(String filePath, Context context);
+    protected void DialogActivity(String filePath, Context context) {
+        Intent intent = new Intent(context, dialogContext);
+        intent.putExtra("filePath", filePath);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        context.startActivity(intent);
+    }
 
     /**
      * 自定义错误处理,收集错误信息 发送错误报告等操作均在此完成.

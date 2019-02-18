@@ -1,7 +1,9 @@
-package com.lgpgit.open.androidbase;
+package com.lgpgit.open.androidbase.activity;
 
 import android.content.Intent;
 
+import com.lgpgit.open.androidbase.R;
+import com.lgpgit.open.androidbase.StartApplication;
 import com.lgpgit.open.toolutils.activity.base.AppBaseRetrofitPermissionActivity;
 import com.lgpgit.open.toolutils.common.Permissions;
 
@@ -16,12 +18,12 @@ public class MainActivity extends AppBaseRetrofitPermissionActivity {
 
     @Override
     protected int initializePermissionLayout() {
-        return 0;
+        return R.layout.activity_permission;
     }
 
     @Override
     protected Retrofit setupRetrofit() {
-        return null;
+        return ((StartApplication)getApplication()).retrofit;
     }
 
     @Override

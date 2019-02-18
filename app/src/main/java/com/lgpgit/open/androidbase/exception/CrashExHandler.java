@@ -1,4 +1,4 @@
-package com.lgpgit.open.androidbase.entiy;
+package com.lgpgit.open.androidbase.exception;
 
 import android.content.Context;
 import android.content.Intent;

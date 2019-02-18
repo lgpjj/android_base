@@ -2,8 +2,10 @@ package com.lgpgit.open.toolutils.others;
 
 import android.content.Context;
 
+import com.lgpgit.open.toolutils.activity.base.ActivityManager;
 import com.lgpgit.open.toolutils.entiy.ApiException;
 import com.lgpgit.open.toolutils.exception.ErrorException;
+import com.lgpgit.open.toolutils.util.ActivityUtils;
 
 import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
@@ -42,6 +44,7 @@ public abstract class BaseObserver<T> implements Observer<T> {
     @Override
     public void onNext(T t) {
         try {
+            ActivityUtils.dismissProgressDialog();
             updateUI(t);
         } catch (Exception e) {
             ApiException apiException = errorException.handleException(e, fun);

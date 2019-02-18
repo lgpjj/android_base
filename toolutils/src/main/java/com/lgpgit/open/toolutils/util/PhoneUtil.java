@@ -13,7 +13,7 @@ import android.os.Environment;
 import android.os.StatFs;
 import android.telephony.TelephonyManager;
 
-import com.strongit.nj.toolutils.common.Common;
+import com.lgpgit.open.toolutils.common.Common;
 
 import java.io.File;
 import java.lang.reflect.Method;
