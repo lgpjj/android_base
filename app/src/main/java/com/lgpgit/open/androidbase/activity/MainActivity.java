@@ -33,7 +33,8 @@ public class MainActivity extends AppBaseRetrofitPermissionActivity {
 
     @Override
     protected void startupView() {
-
+        String s = null;
+        s.equals("ssds");
     }
 
     @Override

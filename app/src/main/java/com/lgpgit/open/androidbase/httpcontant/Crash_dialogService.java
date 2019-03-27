@@ -16,6 +16,6 @@ import retrofit2.http.Part;
 public interface Crash_dialogService {
 
     @Multipart
-    @POST()
+    @POST("uploadFile")
     Observable<HttpResquest<Object>> postEx(@Part("fileKey\"; filename=\"ex.txt") RequestBody fileBody);
 }
