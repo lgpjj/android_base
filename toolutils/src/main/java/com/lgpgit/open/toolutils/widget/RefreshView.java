@@ -23,6 +23,9 @@ public abstract class RefreshView<T extends View> extends SwipeRefreshLayout {
     private int scrollerViewId = getScrollerViewId();
     private int footerLayout = getFooterLayout();
 
+    private Boolean header = getHeader();
+    private Boolean footer = getFooter();
+
     protected T scroolerView;
 
     public RefreshView(@NonNull Context context) {
@@ -50,11 +53,31 @@ public abstract class RefreshView<T extends View> extends SwipeRefreshLayout {
 
     protected abstract void scrollerClick();
 
-    public abstract int getHeaderLayout();
+    public int getHeaderLayout() {
+        if (header) {
+            return headerLayoutView();
+        } else {
+            return -1;
+        }
+    }
+
+    protected abstract int headerLayoutView();
 
     public abstract int getContentLayout();
 
     public abstract int getScrollerViewId();
 
-    public abstract int getFooterLayout();
+    public int getFooterLayout() {
+        if (footer) {
+            return footerLayoutView();
+        } else {
+            return -1;
+        }
+    }
+
+    protected abstract int footerLayoutView();
+
+    public abstract Boolean getHeader();
+
+    public abstract Boolean getFooter();
 }
