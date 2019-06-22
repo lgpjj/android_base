@@ -15,7 +15,7 @@ public class StartApplication extends baseApplication {
 
     @Override
     protected String initializBaseUrl() {
-        return "http://localhost:9000/fbms/";
+        return BuildConfig.APP_BASE_URL;
     }
 
     @Override

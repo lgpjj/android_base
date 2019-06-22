@@ -1,5 +1,7 @@
 package com.lgpgit.open.toolutils.common;
 
+import android.net.http.SslCertificate;
+
 /**
  * 共通常量
  * @author lugp
@@ -86,5 +88,9 @@ public class Constant {
     public static final String YES = "0";
     //不是/不对...(no)
     public static final String NO = "1";
+
+    //dataBase
+    //CODE
+    public static final String CODE = "CODE";
 
 }
