@@ -59,7 +59,7 @@ public abstract class CommonAdapter<T> extends BaseAdapter {
             viewHolder = (CommonViewHolder) convertView.getTag();
         }
         T t = getItem(position);
-        convertView(convertView, t, flag, viewHolder);
+        convertView(position, convertView, t, flag, viewHolder);
         return convertView;
     }
 
@@ -69,12 +69,12 @@ public abstract class CommonAdapter<T> extends BaseAdapter {
      * @param t
      * @param viewHolder
      */
-    protected void convertView(View item, T t, boolean flag, CommonViewHolder viewHolder) {
+    protected void convertView(int position, View item, T t, boolean flag, CommonViewHolder viewHolder) {
         if (flag) {
-            setViewHolder(item, t, viewHolder);
+            setViewHolder(item, viewHolder);
             item.setTag(viewHolder);
         }
-        setObject(item, t, viewHolder);
+        setObject(position, item, t, viewHolder);
     }
 
     /**
@@ -83,7 +83,7 @@ public abstract class CommonAdapter<T> extends BaseAdapter {
      * @param t
      * @param viewHolder
      */
-    protected abstract void setViewHolder(View item, T t, CommonViewHolder viewHolder);
+    protected abstract void setViewHolder(View item, CommonViewHolder viewHolder);
 
     /**
      * 存放view的显示值
@@ -91,7 +91,22 @@ public abstract class CommonAdapter<T> extends BaseAdapter {
      * @param t
      * @param viewHolder
      */
-    protected abstract void setObject(View item, T t, CommonViewHolder viewHolder);
+    protected abstract void setObject(int position, View item, T t, CommonViewHolder viewHolder);
+
+    /**
+     * 获取position对应的itemView
+     * @param position
+     * @return
+     */
+    public View getItemView(int position) {
+        View itemView = LayoutInflater.from(context).inflate(layoutId, null);
+        CommonViewHolder viewHolder = new CommonViewHolder();
+        T t = getItem(position);
+
+        setViewHolder(itemView, viewHolder);
+        setObject(position, itemView, t, viewHolder);
+        return itemView;
+    }
 
     public List<T> getListData() {
         return listData;

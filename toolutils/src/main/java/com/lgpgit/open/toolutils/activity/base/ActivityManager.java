@@ -62,24 +62,10 @@ public class ActivityManager extends Application {
                 Activity activity = activityList.get(i);
                 activity.finish();
                 activityList.remove(i);
+                i--;
             }
         }
     }
-
-//    /**
-//     * 遍历所有Activity，回到主菜单，并finish其他Activity
-//     */
-//	public static void goMenu() {
-//		for (int i = 0; i < activityList.size(); i++) {
-//			Activity activity = activityList.get(i);
-//			String strClassName = activity.getClass().getSimpleName();
-//			if (!"Login".equals(strClassName) && !"HomeMenu".equals(strClassName)) {
-//				activity.finish();
-//				activityList.remove(i);
-//				i--;
-//			}
-//		}
-//	}
 
     /**
      * 退出

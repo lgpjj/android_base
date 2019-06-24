@@ -12,10 +12,7 @@ import java.io.Serializable;
  * @author lugp
  * @date 2019/1/30
  */
-public class TBase implements Serializable {
-
-    @Transient
-    private static final long serialVersionUID = -7637442168345777446L;
+public class TBase {
 
     @Id(column = "ID")
     private Integer id;
