@@ -67,12 +67,6 @@ public abstract class CrashHandler implements Thread.UncaughtExceptionHandler {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-//            // 退出程序
-//            android.os.Process.killProcess(android.os.Process.myPid());
-//            System.exit(1);// 关闭已奔溃的app进程
-//            Intent intent = new Intent(mContext,  );
-//            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-//            mContext.startActivity(intent);
             String time = format.format(new Date());
             String fileName = "crash-" + time + ".log";
             String filePath = Environment.getExternalStorageDirectory() + "/" + mfilePage;

@@ -10,7 +10,7 @@ public class HttpResquest<T> {
 
     private String code;
     private String msg;
-    private String func;
+    private Boolean success;
     private T data;
 
     public String getCode() {
@@ -29,19 +29,19 @@ public class HttpResquest<T> {
         this.msg = msg;
     }
 
-    public String getFunc() {
-        return func;
-    }
-
-    public void setFunc(String func) {
-        this.func = func;
-    }
-
     public T getData() {
         return data;
     }
 
     public void setData(T data) {
         this.data = data;
+    }
+
+    public Boolean getSuccess() {
+        return success;
+    }
+
+    public void setSuccess(Boolean success) {
+        this.success = success;
     }
 }

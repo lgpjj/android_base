@@ -178,7 +178,6 @@ public class Common {
      * @return
      */
     public static Date addTime(@NonNull int type, @NonNull Date time, int timeNum) {
-//        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         Calendar c = Calendar.getInstance();
         c.setTime(time);
         c.add(type, timeNum);
@@ -193,7 +192,7 @@ public class Common {
      * @return
      */
     public static String dateToString(@NonNull String type, @NonNull Date time) {
-        SimpleDateFormat df = new SimpleDateFormat("type");
+        SimpleDateFormat df = new SimpleDateFormat(type);
         return df.format(time);
     }
 
@@ -206,7 +205,7 @@ public class Common {
      * @throws ParseException
      */
     public static Date stringToDate(@NonNull String type, @NonNull String time) throws ParseException {
-        SimpleDateFormat df = new SimpleDateFormat("type");
+        SimpleDateFormat df = new SimpleDateFormat(type);
         return df.parse(time);
     }
 }
