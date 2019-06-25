@@ -1,4 +1,4 @@
-package com.lgpgit.open.toolutils.widget;
+package com.lgpgit.open.toolutils.widget.base;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
