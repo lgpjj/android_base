@@ -1,8 +1,7 @@
 package com.lgpgit.open.androidbase.entiy;
 
+import com.lgpgit.open.finaldb.annotation.sqlite.Transient;
 import com.lgpgit.open.toolutils.entiy.TBase;
-
-import net.tsz.afinal.annotation.sqlite.Transient;
 
 import java.io.Serializable;
 

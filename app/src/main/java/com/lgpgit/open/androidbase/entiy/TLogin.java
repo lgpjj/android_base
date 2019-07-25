@@ -1,11 +1,10 @@
 package com.lgpgit.open.androidbase.entiy;
 
+import com.lgpgit.open.finaldb.annotation.sqlite.Property;
+import com.lgpgit.open.finaldb.annotation.sqlite.Table;
+import com.lgpgit.open.finaldb.annotation.sqlite.Transient;
 import com.lgpgit.open.toolutils.entiy.TBase;
 
-import net.tsz.afinal.annotation.sqlite.Id;
-import net.tsz.afinal.annotation.sqlite.Property;
-import net.tsz.afinal.annotation.sqlite.Table;
-import net.tsz.afinal.annotation.sqlite.Transient;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -24,21 +23,6 @@ public class TLogin extends TBase implements Serializable {
     private Date registerTime;
     @Property(column = "DELETE")
     private Boolean delete;
-
-    public TLogin() {
-    }
-
-    public TLogin(String code) {
-        super(code);
-    }
-
-    public TLogin(Integer id, String code, String userName, String passWord, Date registerTime, Boolean delete) {
-        super(id, code);
-        this.userName = userName;
-        this.passWord = passWord;
-        this.registerTime = registerTime;
-        this.delete = delete;
-    }
 
     public String getUserName() {
         return userName;
@@ -70,5 +54,15 @@ public class TLogin extends TBase implements Serializable {
 
     public void setDelete(Boolean delete) {
         this.delete = delete;
+    }
+
+    @Override
+    public void setId(Integer id) {
+        super.setId(id);
+    }
+
+    @Override
+    public void setCode(String code) {
+        super.setCode(code);
     }
 }

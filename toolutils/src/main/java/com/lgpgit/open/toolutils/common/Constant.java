@@ -36,5 +36,8 @@ public class Constant {
     //dataBase
     //CODE
     public static final String CODE = "CODE";
+    public static final String EXCEPTION_CODE = "EXCEPTION_CODE";
 
+    //默认30天删除
+    public static final int INT_THIRTIETH = 30;
 }

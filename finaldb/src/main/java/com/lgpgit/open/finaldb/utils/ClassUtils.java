@@ -101,12 +101,12 @@ public class ClassUtils {
 	public static Field getPrimaryKeyField(Class<?> clazz) {
 		Field primaryKeyField = null ;
 		List<Field> ltFields = new ArrayList<Field>();
-		
+
 		Class<?> clazz_ = clazz;
 		while(clazz_ != null) {
 			ltFields.addAll(new ArrayList<Field>(Arrays.asList(clazz_.getDeclaredFields())));
 			clazz_ = clazz_.getSuperclass();
-			
+
 			if (clazz_.getSimpleName().equals(Object.class.getSimpleName())) {
 				break;
 			}

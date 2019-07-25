@@ -1,6 +1,7 @@
 package com.lgpgit.open.toolutils.application.base;
 
 import android.app.Application;
+import android.content.Intent;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;

@@ -1,10 +1,7 @@
 package com.lgpgit.open.toolutils.entiy;
 
-import net.tsz.afinal.annotation.sqlite.Id;
-import net.tsz.afinal.annotation.sqlite.Property;
-import net.tsz.afinal.annotation.sqlite.Transient;
-
-import java.io.Serializable;
+import com.lgpgit.open.finaldb.annotation.sqlite.Id;
+import com.lgpgit.open.finaldb.annotation.sqlite.Property;
 
 /**
  * sqlite的对象基础类
@@ -19,18 +16,6 @@ public class TBase {
 
     @Property(column = "CODE")
     private String code;
-
-    public TBase() {
-    }
-
-    public TBase(Integer id, String code) {
-        this.id = id;
-        this.code = code;
-    }
-
-    public TBase(String code) {
-        this.code = code;
-    }
 
     public Integer getId() {
         return id;

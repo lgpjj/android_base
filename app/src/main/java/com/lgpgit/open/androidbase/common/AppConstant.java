@@ -8,7 +8,4 @@ public class AppConstant extends Constant {
     //dataBase_code
     public static final String CODE_LOGIN = "LOGIN_CODE";
 
-
-    //
-    public static TLogin login = new TLogin();
 }

@@ -151,8 +151,9 @@ public abstract class AppBaseRetrofitPermissionActivity extends Activity {
         // 拒绝时, 关闭页面, 缺少主要权限, 无法运行
         if (requestCode == REQUEST_CODE && resultCode == PermissionsActivity.PERMISSIONS_DENIED) {
             finish();
+        } else {
+            onActivityResultOther(requestCode, resultCode, data);
         }
-        onActivityResultOther(requestCode, resultCode, data);
     }
 
     protected abstract void onActivityResultOther(int requestCode, int resultCode, Intent data);

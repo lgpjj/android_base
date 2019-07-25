@@ -116,7 +116,7 @@ public abstract class CommonAdapter<T> extends BaseAdapter {
         this.listData = listData;
     }
 
-    public void exchangePosition(int position, int tempPosition, boolean b) {
+    public void exchangePosition(int position, int tempPosition) {
         T t = listData.get(position);
         listData.remove(position);
         listData.add(tempPosition, t);

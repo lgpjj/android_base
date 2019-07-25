@@ -15,6 +15,8 @@
  */
 package com.lgpgit.open.finaldb.utils;
 
+import android.support.annotation.NonNull;
+
 import com.lgpgit.open.finaldb.annotation.sqlite.Id;
 import com.lgpgit.open.finaldb.annotation.sqlite.ManyToOne;
 import com.lgpgit.open.finaldb.annotation.sqlite.OneToMany;
@@ -26,7 +28,11 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
+
+import javax.xml.validation.Validator;
 
 
 /**
@@ -357,5 +363,42 @@ public class FieldUtils {
 			}
 		}
 		return null;
+	}
+
+	/**
+	 * 获取类中所有的字段（包括父集）
+	 * @param cls
+	 * @return
+	 */
+	@NonNull
+	public static Field[] getAllFields(Class<?> cls) {
+		final List<Field> fields = getAllFieldList(cls);
+		return fields.toArray(new Field[fields.size()]);
+	}
+
+	public static List<Field> getAllFieldList(Class<?> cls) {
+		Validate.isTrue(cls != null, "The class must not be null");
+		final List<Field> fields = new ArrayList<>();
+		Class<?> currentClass = cls;
+		while (currentClass != null) {
+			final Field[] declaredFields = currentClass.getDeclaredFields();
+			for (Field field : declaredFields) {
+				fields.add(field);
+			}
+			currentClass = currentClass.getSuperclass();
+		}
+		return fields;
+	}
+
+	public static class Validate {
+		public static void isTrue(boolean b, String msg) {
+			if (!b) {
+				try {
+					throw new Exception(msg);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		}
 	}
 }

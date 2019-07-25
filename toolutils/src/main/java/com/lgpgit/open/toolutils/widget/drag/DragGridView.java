@@ -12,10 +12,9 @@ import android.view.animation.LinearInterpolator;
 import android.view.animation.TranslateAnimation;
 import android.widget.AdapterView;
 import android.widget.GridView;
-import android.widget.ListAdapter;
 
-import com.lgpgit.open.toolutils.adapter.CommonAdapter;
 import com.lgpgit.open.toolutils.common.Constant;
+import com.lgpgit.open.toolutils.widget.drag.interfaces.DragGridViewFun;
 
 public class DragGridView extends GridView implements AdapterView.OnItemLongClickListener {
 
@@ -241,6 +240,18 @@ public class DragGridView extends GridView implements AdapterView.OnItemLongClic
         } else {
             dragGridViewFun.exchangePosition();
         }
+    }
+
+    /**
+     * 子项事件触发前需要调用此方法，不然会有镜像显示出来。无法删除
+     */
+    public void closeView() {
+        if (gridView != null) {
+            windowManager.removeView(gridView);
+            gridView = null;
+            layoutParams = null;
+        }
+        move_is = NO_MOVE_ADAPTER;
     }
 
     //放入是否移动item的值

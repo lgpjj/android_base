@@ -2,7 +2,7 @@ package com.lgpgit.open.toolutils.database;
 
 import android.content.Context;
 
-import net.tsz.afinal.FinalDb;
+import com.lgpgit.open.finaldb.FinalDb;
 
 import java.util.List;
 

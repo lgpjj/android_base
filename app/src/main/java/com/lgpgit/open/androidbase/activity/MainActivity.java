@@ -7,13 +7,12 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.lgpgit.open.androidbase.BuildConfig;
-import com.lgpgit.open.androidbase.HomeMenuActivity;
 import com.lgpgit.open.androidbase.R;
 import com.lgpgit.open.androidbase.StartApplication;
+import com.lgpgit.open.androidbase.common.AppCommon;
 import com.lgpgit.open.androidbase.common.AppConstant;
 import com.lgpgit.open.androidbase.entiy.TLogin;
 import com.lgpgit.open.toolutils.activity.base.AppBaseRetrofitPermissionActivity;
-import com.lgpgit.open.toolutils.common.Common;
 import com.lgpgit.open.toolutils.common.Constant;
 import com.lgpgit.open.toolutils.common.Permissions;
 import com.lgpgit.open.toolutils.database.Database;
@@ -74,7 +73,7 @@ public class MainActivity extends AppBaseRetrofitPermissionActivity {
                         if (passWord.equals(passwordText)) {
                             //登录成功
                             ActivityUtils.showProgressDialogLogin(MainActivity.this);
-                            AppConstant.login = login;
+                            AppCommon.login = login;
                             Intent intent = new Intent(MainActivity.this, HomeMenuActivity.class);
                             ActivityUtils.dismissProgressDialog();
                             startActivity(intent);
@@ -100,7 +99,7 @@ public class MainActivity extends AppBaseRetrofitPermissionActivity {
     protected void initializData() {
         database = Database.getDatabase(MainActivity.this, BuildConfig.DB_NAME);
         Intent intent = getIntent();
-        if (intent != null) {
+        if (intent.getExtras() != null) {
             Bundle bundle = intent.getExtras();
             if (bundle.containsKey("userName")) {
                 user.setText(bundle.getString("userName"));
@@ -121,7 +120,7 @@ public class MainActivity extends AppBaseRetrofitPermissionActivity {
             TLogin login = new TLogin();
             login.setUserName(dataBundle.getString("userName"));
             login.setPassWord(dataBundle.getString("passWord"));
-            AppConstant.login = login;
+            AppCommon.login = login;
         }
     }
 }

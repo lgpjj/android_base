@@ -28,6 +28,13 @@
             android:layout_height="wrap_content"
             android:layout_toRightOf="@+id/user"
             android:hint="请输入用户名"/>
+
+        <ListView
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/user"
+            android:layout_below="@+id/user_text"/>
+
     </RelativeLayout>
     <RelativeLayout
         android:id="@+id/password_layout"
@@ -75,14 +82,6 @@
             android:layout_marginLeft="40dp"
             android:text="注册"
             android:textSize="16sp"/>
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="15dp">
-
     </RelativeLayout>
 
 </RelativeLayout>

@@ -20,7 +20,7 @@ public class StartApplication extends baseApplication {
 
     @Override
     public void createEx() {
-        CrashExHandler crashExHandler = new CrashExHandler();
-        crashExHandler.init(this);
+//        CrashExHandler crashExHandler = new CrashExHandler();
+//        crashExHandler.init(this);
     }
 }

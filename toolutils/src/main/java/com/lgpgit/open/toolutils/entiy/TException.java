@@ -1,8 +1,8 @@
 package com.lgpgit.open.toolutils.entiy;
 
-import net.tsz.afinal.annotation.sqlite.Property;
-import net.tsz.afinal.annotation.sqlite.Table;
-import net.tsz.afinal.annotation.sqlite.Transient;
+import com.lgpgit.open.finaldb.annotation.sqlite.Property;
+import com.lgpgit.open.finaldb.annotation.sqlite.Table;
+import com.lgpgit.open.finaldb.annotation.sqlite.Transient;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -27,25 +27,6 @@ public class TException extends TBase implements Serializable {
     private Date saveTime;
     @Property(column = "DELETE_TIME")
     private Date deleteTime;
-
-    public TException() {
-    }
-
-    public TException(Integer id, String code, String message, String type, Date saveTime, Date deleteTime) {
-        super(id, code);
-        this.message = message;
-        this.type = type;
-        this.saveTime = saveTime;
-        this.deleteTime = deleteTime;
-    }
-
-    public TException(String code, String message, String type, Date saveTime, Date deleteTime) {
-        super(code);
-        this.message = message;
-        this.type = type;
-        this.saveTime = saveTime;
-        this.deleteTime = deleteTime;
-    }
 
     public String getMessage() {
         return message;
